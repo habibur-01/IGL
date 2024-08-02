@@ -1,0 +1,45 @@
+.sidebar {
+    font-size: 16px;
+}
+
+.sidebar:hover {
+    background: transparent;
+    border-bottom: 2px solid #ff4900;
+    color: #ff4900;
+}
+
+.sidebar-active {
+    color: #ff4900;
+    /* Change to your desired active color */
+    font-weight: bold;
+    border-bottom: 2px solid #ff4900;
+}
+
+.navbar ul.menu li {
+    margin-right: 10px;
+    font-size: 16px;
+
+}
+
+.navbar ul.menu li:last-child {
+    margin-right: 0;
+}
+
+.navbar ul.menu li a {
+    font-size: 16px;
+    white-space: nowrap;
+    /* Ensure font size is applied to links as well */
+}
+
+.dropdown-bar:hover {
+    color: #ff4900;
+}
+
+.dropdown-bar:not(:last-child) {
+    padding-bottom: 8px ;
+}
+
+.dropdown-bar:not(:last-child) {
+    border-bottom: 1px solid #e0e0e0;
+    /* Change to your desired underline color */
+}

@@ -1,0 +1,23 @@
+.card{
+    position: relative;
+    width: 384px;
+}
+
+.card-content::after,
+.card-content::before {
+  content: '';
+  position: absolute;
+  height: 100%; 
+  width: 100%;  
+  background: #ff4900;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  padding: 10px;
+}
+.card:hover{
+    cursor: pointer;
+    background-image: linear-gradient(rgb(236, 203, 203), rgb(233, 233, 183), rgb(170, 226, 170));;
+
+}

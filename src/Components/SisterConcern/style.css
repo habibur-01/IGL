@@ -1,0 +1,27 @@
+.service-container {
+    background-image: linear-gradient(to right, rgb(255, 240, 235, 1), rgb(255, 240, 235, 1), rgba(255, 255, 255, 0.5)), url("../../assets/images/concern.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    height: max-content;
+    width: 100%;
+
+}
+
+.service-card:hover{
+    background-color: #ffffff;
+    border-left: 1px solid #ff4900;
+    border-top: 1px solid #ff4900;
+    cursor: pointer;
+}
+
+.service-card:hover .logo-container {
+    background-color: #ff4900;
+}
+.service-card:hover .icon {
+    color: #ffffff;
+}
+
+/* .logo-container:hover {
+    background-color: #ff4900;
+} */

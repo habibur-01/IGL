@@ -1,0 +1,53 @@
+.department-name::after {
+    content: "";
+    width: 25%;
+    position: absolute;
+    bottom: 0;
+    background-color: #ff4900;
+    border: 1px solid #ff4900;
+    left: 0;
+}
+
+.department-name:hover::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: #ff4900;
+    border: 1px solid #ff4900;
+    left: 0;
+    transition: 0.4s ease-in-out;
+}
+
+.member-card-wraper {
+    position: relative;
+    width: 320px;
+    height: max-content;
+    border: 1px solid #f39e7c;
+}
+
+.member-card {
+    width: 100%;
+    opacity: 1;
+    display: block;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.member-details {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+.member-card-wraper:hover .member-card {
+    opacity: 0.3;
+}
+.member-card-wraper:hover .member-details {
+    opacity: 1;
+}
