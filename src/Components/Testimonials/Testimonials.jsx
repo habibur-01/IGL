@@ -27,6 +27,7 @@ const Testimonials = () => {
       </div>
       <div className="my-10 z-0 w-[80%] mx-auto">
         <Swiper
+        slidesPerView={2}
           spaceBetween={30}
           centeredSlides={true}
           autoplay={{

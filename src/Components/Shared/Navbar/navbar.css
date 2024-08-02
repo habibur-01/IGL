@@ -43,3 +43,8 @@
     border-bottom: 1px solid #e0e0e0;
     /* Change to your desired underline color */
 }
+.navbar-fixed{
+    position: fixed;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: 0.4s ease-in-out;
+}
