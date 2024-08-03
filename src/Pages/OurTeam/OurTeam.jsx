@@ -7,19 +7,16 @@ import member2 from "../../assets/images/member-2.jpg";
 import member3 from "../../assets/images/member-3.jpg";
 import "./outeam.css";
 import { FaSquareInstagram } from "react-icons/fa6";
+import ShowPageName from "../../Components/Shared/ShowPageName/ShowPageName";
+import { Link } from "react-router-dom";
 
 const OurTeam = () => {
+  const id = 45
   return (
     <div>
       <PageBanner image={teambg} path={"team"} title={"Our Team"}></PageBanner>
       <div className="flex justify-center mt-20">
-        <div className="flex justify-center items-center gap-4 h-10 w-36 bg-[#ffffff] rounded-lg shadow-lg">
-          <p className="h-2 w-2 rounded-full bg-[#ff4900]"></p>
-          <p className="text-base font-semibold tracking-wider uppercase">
-            Our Team
-          </p>
-          <p className="h-2 w-2 rounded-full bg-[#ff4900]"></p>
-        </div>
+        <ShowPageName pageName={"Our Team"}></ShowPageName>
       </div>
       <div>
         <div className="text-center my-10 ">
@@ -39,6 +36,7 @@ const OurTeam = () => {
                 Software Department
               </h1>
               <div className="my-10 grid grid-cols-3">
+                <Link to={`/personalInfo/${id}`}>
                 <div className="member-card-wraper">
                   <div className="member-card">
                     <div className="w-full h-[350px] overflow-hidden">
@@ -69,7 +67,7 @@ const OurTeam = () => {
                       </a>
                     </div>
                   </div>
-                </div>
+                </div></Link>
                 <div className="member-card-wraper">
                   <div className="member-card">
                     <div className="w-full h-[350px] overflow-hidden">

@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import PageBanner from "../../Components/Shared/PageBanner/PageBanner";
 import bgimage from "../../assets/images/about.jpg";
 import Container from "../../Components/Shared/Container/Container";
+import ShowPageName from "../../Components/Shared/ShowPageName/ShowPageName";
 
 const AboutUs = () => {
   const location = useLocation();
@@ -11,13 +12,7 @@ const AboutUs = () => {
       <PageBanner image={bgimage} path={pagePath} title={'About Us'}></PageBanner>
       <Container>
         <div className="my-24">
-          <div className="flex justify-center items-center gap-4 h-10 w-36 bg-[#ffffff] rounded-lg shadow-lg">
-            <p className="h-2 w-2 rounded-full bg-[#ff4900]"></p>
-            <p className="text-base font-semibold tracking-wider uppercase">
-              About us
-            </p>
-            <p className="h-2 w-2 rounded-full bg-[#ff4900]"></p>
-          </div>
+          <ShowPageName pageName={"About us"}></ShowPageName>
           <div className="my-10 flex justify-center">
             <div className="w-[700px]">
               <h1 className="text-[40px] mb-4">

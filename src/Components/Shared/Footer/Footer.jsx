@@ -1,5 +1,6 @@
 import { FaFacebookF, FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa";
 import logo from "../../../assets/images/logo.png";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div>
@@ -10,10 +11,10 @@ const Footer = () => {
           </div>
           <p>Domain Registration,Web Hosting, Web design & <br/>Developed by IGL Web Ltd</p>
           <div className="flex gap-2">
-            <p className="w-10 h-10 rounded-full bg-[#24262c] flex justify-center items-center hover:cursor-pointer"><FaFacebookF size={15} className="hover:text-blue-500"/></p>
-            <p className="w-10 h-10 rounded-full bg-[#24262c] flex justify-center items-center hover:cursor-pointer"><FaInstagram size={15} className="hover:text-[#f142f7]"/></p>
-            <p className="w-10 h-10 rounded-full bg-[#24262c] flex justify-center items-center hover:cursor-pointer"><FaYoutube size={16} className="hover:text-red-500"/></p>
-            <p className="w-10 h-10 rounded-full bg-[#24262c] flex justify-center items-center hover:cursor-pointer"><FaWhatsapp size={16} className="hover:text-green-400"/></p>
+            <p className="w-10 h-10 rounded-full bg-[#24262c] flex justify-center items-center hover:cursor-pointer"><Link to={"https://www.facebook.com/IGLGroupBD"} target="_blank"><FaFacebookF size={15} className="hover:text-blue-500"/></Link></p>
+            <p className="w-10 h-10 rounded-full bg-[#24262c] flex justify-center items-center hover:cursor-pointer"><Link to={"https://www.facebook.com/IGLGroupBD"} target="_blank"><FaInstagram size={15} className="hover:text-[#f142f7]"/></Link></p>
+            <p className="w-10 h-10 rounded-full bg-[#24262c] flex justify-center items-center hover:cursor-pointer"><Link to={"https://www.youtube.com/channel/UCo5dAuFoooGSj0y76XixZ6w"} target="_blank"><FaYoutube size={16} className="hover:text-red-500"/></Link></p>
+            <p className="w-10 h-10 rounded-full bg-[#24262c] flex justify-center items-center hover:cursor-pointer"><Link to={"https://www.facebook.com/IGLGroupBD"} target="_blank"><FaWhatsapp size={16} className="hover:text-green-400"/></Link></p>
           </div>
         </div>
 
@@ -37,7 +38,7 @@ const Footer = () => {
         </nav>
       </footer>
       <div className="w-full h-16 text-[#FFFFFF] text-base flex justify-center items-center bg-[#24262c]">
-        <h1>Copyright &copy; 2022 <span>IGL Group</span></h1>
+        <h1>Copyright &copy; 2022 <span className="text-[#ff4900] leading-8"><Link to={"https://iglweb.com/web/"} target="_blank">IGL Group</Link></span></h1>
       </div>
     </div>
   );

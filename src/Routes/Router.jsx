@@ -7,6 +7,9 @@ import AboutUs from "../Pages/AboutUs/AboutUs";
 import OurTeam from "../Pages/OurTeam/OurTeam";
 import Directors from "../Pages/Directors/Directors";
 import Gallery from "../Pages/Gallery/Gallery";
+import WebPageDetails from "../Pages/WebPageDetails/WebPageDetails";
+import TeamMemberDetails from "../Pages/TeamMemberDetails/TeamMemberDetails";
+import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +40,18 @@ const router = createBrowserRouter([
       {
         path: "/gallery",
         element: <Gallery></Gallery>
+      },
+      {
+        path: "/iglweb",
+        element: <WebPageDetails></WebPageDetails>
+      },
+      {
+        path: "/personalInfo/:id",
+        element: <TeamMemberDetails></TeamMemberDetails>
+      },
+      {
+        path: "/servicedetails/:id",
+        element: <ServiceDetails></ServiceDetails>
       }
     ],
   },

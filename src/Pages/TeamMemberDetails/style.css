@@ -1,0 +1,11 @@
+.table tbody tr:not(:last-child) {
+    border-bottom: 1px solid #ccc; /* Adjust the color as needed */
+  }
+  .table tbody tr td{
+    font-size: 16px;
+  }
+  
+  .table tbody td.column-border {
+    border-right: 1px solid #ccc; /* Adjust the color as needed */
+  }
+  

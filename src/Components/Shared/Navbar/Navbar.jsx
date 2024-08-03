@@ -1,7 +1,7 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../../../assets/images/logo.png";
 import { MdKeyboardArrowDown } from "react-icons/md";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./navbar.css";
 import Container from "../Container/Container";
 
@@ -9,6 +9,9 @@ const Navbar = () => {
   const [isMenuDown, setIsMenuDown] = useState(false);
   const [isDown, setIsDown] = useState(false);
   const [barActive, setBarActive] = useState(false);
+  const menuRef = useRef(null);
+  const dropdownRef = useRef(null);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,8 +29,6 @@ const Navbar = () => {
     };
   }, []);
 
-  // console.log(barActive);
-
   const handleMenuToggle = () => {
     setIsMenuDown(!isMenuDown);
   };
@@ -35,6 +36,28 @@ const Navbar = () => {
   const handleDropdownToggle = () => {
     setIsDown(!isDown);
   };
+
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setIsMenuDown(false);
+    }
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsDown(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  useEffect(() => {
+    // Close dropdowns on route change
+    setIsMenuDown(false);
+    setIsDown(false);
+  }, [location]);
 
   return (
     <div
@@ -90,8 +113,8 @@ const Navbar = () => {
                     About Us
                   </NavLink>
                 </li>
-                <li className="relative" onClick={handleDropdownToggle}>
-                  <a className="sidebar">
+                <li className="relative" ref={dropdownRef}>
+                  <a className="sidebar" onClick={handleDropdownToggle}>
                     Sister Concern
                     <span className={`${isDown && "rotate-180"}`}>
                       <MdKeyboardArrowDown size={18} />
@@ -113,8 +136,8 @@ const Navbar = () => {
                     </div>
                   </div>
                 </li>
-                <li className="relative" onClick={handleMenuToggle}>
-                  <a className="sidebar">
+                <li className="relative" ref={menuRef}>
+                  <a className="sidebar" onClick={handleMenuToggle}>
                     Our Team
                     <span className={`${isMenuDown && "rotate-180"}`}>
                       <MdKeyboardArrowDown size={18} />
@@ -181,8 +204,8 @@ const Navbar = () => {
                   About Us
                 </NavLink>
               </li>
-              <li className="relative" onClick={handleDropdownToggle}>
-                <a className="sidebar">
+              <li className="relative" ref={dropdownRef}>
+                <a className="sidebar" onClick={handleDropdownToggle}>
                   Sister Concern
                   <span className={`${isDown && "rotate-180"}`}>
                     <MdKeyboardArrowDown size={18} />
@@ -194,18 +217,18 @@ const Navbar = () => {
                   }`}
                 >
                   <div className="dropdown-bar">
-                    <Link to={"https://iglweb.com/web/"}>IGL Web</Link>
+                    <Link to={"/iglweb"}>IGL Web</Link>
                   </div>
                   <div className="dropdown-bar">
-                    <Link to={"/team"}>IGL Host</Link>
+                    <Link to={"/iglhost"}>IGL Host</Link>
                   </div>
                   <div className="dropdown-bar">
-                    <Link to={"/team"}>IGL Nework</Link>
+                    <Link to={"/iglnetwork"}>IGL Nework</Link>
                   </div>
                 </div>
               </li>
-              <li className="relative" onClick={handleMenuToggle}>
-                <a className="sidebar">
+              <li className="relative" ref={menuRef}>
+                <a className="sidebar" onClick={handleMenuToggle}>
                   Our Team
                   <span className={`${isMenuDown && "rotate-180"}`}>
                     <MdKeyboardArrowDown size={18} />

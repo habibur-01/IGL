@@ -11,7 +11,7 @@ const Errorpage = () => {
                 <h1 className="text-4xl font-bold">Oops! Page Not Found</h1>
                 <p className="text-sm font-thin">This page you are looking for might have been removed<br/>had its name changed or its temporarily unavailable.</p>
                 <div className="flex justify-center">
-                <Link to={"/"}><button className="btn btn-primary w-52">Go to home page</button></Link>
+                <Link to={"/"}><button className="btn btn-primary w-40 uppercase leading-9">Go to home page</button></Link>
                 </div>
             </div>
         </div>
