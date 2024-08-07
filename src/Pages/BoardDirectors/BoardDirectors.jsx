@@ -2,7 +2,7 @@ import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import "./director.css";
 import { FaSquareInstagram } from "react-icons/fa6";
 import bgPic from "../../assets/images/concern1.jpg"
-import member1 from "../../assets/images/member-1.jpg"
+import member1 from "../../assets/images/member-3.jpg"
 import Container from "../../Components/Shared/Container/Container";
 import PageBanner from "../../Components/Shared/PageBanner/PageBanner";
 
@@ -23,7 +23,7 @@ const Directors = () => {
       </div>
       <Container>
         <div className="my-10">
-          <div className="director-card-wraper pt-10">
+          <div className="director-card-wraper">
             <div className="director-card">
               <div className="w-full h-[200px] overflow-hidden">
                 <img

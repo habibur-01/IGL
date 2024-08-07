@@ -5,7 +5,7 @@ import Home from "../Pages/Home/Home";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import OurTeam from "../Pages/OurTeam/OurTeam";
-import Directors from "../Pages/Directors/Directors";
+import BoardDirectors from "../Pages/BoardDirectors/BoardDirectors";
 import Gallery from "../Pages/Gallery/Gallery";
 import WebPageDetails from "../Pages/WebPageDetails/WebPageDetails";
 import TeamMemberDetails from "../Pages/TeamMemberDetails/TeamMemberDetails";
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/directors",
-        element: <Directors></Directors>
+        element: <BoardDirectors></BoardDirectors>
       },
       {
         path: "/gallery",
