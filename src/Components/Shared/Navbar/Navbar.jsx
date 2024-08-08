@@ -239,11 +239,15 @@ const Navbar = () => {
                     isMenuDown ? "block" : "hidden"
                   }`}
                 >
-                  <div className="dropdown-bar ">
-                    <Link to={"/directors"}>Board of Director</Link>
+                  <div className="dropdown-bar">
+                    <NavLink to={"/directors"} className={({ isActive }) =>
+                    isActive ? "sidebar activedropdown-bar" : "sidebar"
+                  }>Board of Director</NavLink>
                   </div>
                   <div className="dropdown-bar">
-                    <Link to={"/team"}>Board of Officer/Staff</Link>
+                    <NavLink to={"/team"} className={({ isActive }) =>
+                    isActive ? "sidebar activedropdown-bar" : "sidebar"
+                  }>Board of Officer/Staff</NavLink>
                   </div>
                 </div>
               </li>

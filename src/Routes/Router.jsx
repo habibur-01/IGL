@@ -10,6 +10,7 @@ import Gallery from "../Pages/Gallery/Gallery";
 import WebPageDetails from "../Pages/WebPageDetails/WebPageDetails";
 import TeamMemberDetails from "../Pages/TeamMemberDetails/TeamMemberDetails";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
+import GalleryDetails from "../Pages/Gallery/GalleryDetails";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: "/servicedetails/:id",
         element: <ServiceDetails></ServiceDetails>
+      },
+      {
+        path: "/gallery/:year",
+        element: <GalleryDetails></GalleryDetails>
       }
     ],
   },

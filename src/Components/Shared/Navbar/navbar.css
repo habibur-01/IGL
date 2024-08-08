@@ -15,6 +15,7 @@
     border-bottom: 2px solid #ff4900;
 }
 
+
 .navbar ul.menu li {
     margin-right: 10px;
     font-size: 16px;
@@ -31,18 +32,19 @@
     /* Ensure font size is applied to links as well */
 }
 
+.dropdown-bar{
+    padding-left: 8px;
+}
 .dropdown-bar:hover {
     color: #ff4900;
 }
 
 .dropdown-bar:not(:last-child) {
     padding-bottom: 8px ;
+    border-bottom: 1px solid #e0e0e0;
 }
 
-.dropdown-bar:not(:last-child) {
-    border-bottom: 1px solid #e0e0e0;
-    /* Change to your desired underline color */
-}
+
 .navbar-fixed{
     position: fixed;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

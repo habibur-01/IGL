@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import PageBanner from "../../Components/Shared/PageBanner/PageBanner";
 import bgimage from "../../assets/images/about.jpg";
+import ceoPic from "../../assets/images/moinigl.jpg";
 import Container from "../../Components/Shared/Container/Container";
 import ShowPageName from "../../Components/Shared/ShowPageName/ShowPageName";
 
@@ -17,7 +18,7 @@ const AboutUs = () => {
             <div className="w-[700px]">
               <h1 className="text-[40px] mb-4">
                 <span className="text-[#ff4900]">Introduction</span> To About
-                IGL Group Ltd!
+                IGL Group!
               </h1>
               <p>
                 We can help you from concept to design to all the way for
@@ -41,7 +42,7 @@ const AboutUs = () => {
        <div>
          <div className="grid grid-cols-2 gap-12 h-max mb-24">
           <div className="h-[350px] w-[550px] rounded-lg overflow-hidden">
-            <img src={bgimage} alt="" className="w-full h-full rounded-lg" />
+            <img src={ceoPic} alt="" className="w-full h-full object-fill rounded-lg" />
           </div>
           <div className="flex-1 flex justify-center items-center">
             <div className="space-y-8 ">

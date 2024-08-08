@@ -7,18 +7,39 @@ import img4 from "../../assets/images/member-3.jpg";
 import img5 from "../../assets/images/concern.jpg";
 import img6 from "../../assets/images/banner.jpg";
 import "./gallery.css";
-import { useState } from "react";
-import { RxCross2 } from "react-icons/rx";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/effect-cards";
+
+// import required modules
+import { EffectCards } from "swiper/modules";
+import { Link } from "react-router-dom";
 
 const Gallery = () => {
-  let data = [
+  let year = [
     {
       id: 1,
-      imgSrc: img1,
+      year: 2021,
     },
     {
       id: 2,
+      year: 2022,
+    },
+    {
+      id: 3,
+      year: 2023,
+    },
+  ];
+  let data = [
+    {
+      id: 1,
       imgSrc: img2,
+    },
+    {
+      id: 2,
+      imgSrc: img1,
     },
     {
       id: 3,
@@ -37,15 +58,7 @@ const Gallery = () => {
       imgSrc: img6,
     },
   ];
-  console.log(data);
-  const [model, setModel] = useState(false)
-  const [tempImgSrc, setTempImgSrc] = useState('')
-
-  const handleImage = (img) => {
-       setTempImgSrc(img)
-       setModel(true)
-  }
-  console.log(model)
+ 
   return (
     <div>
       <PageBanner
@@ -65,20 +78,35 @@ const Gallery = () => {
             short of excellent.{" "}
           </p>
         </div>
-        <div className={`${model ? "model open" : "model"}`}>
-          <img src={tempImgSrc} alt="" />
-          <RxCross2 size={40} className="text-white close-icon" onClick={()=> setModel(false)}/>
-
+        <div className="relative my-20 grid grid-cols-3">
+          {year.map((perYear) => (
+            <Link key={perYear.id} to={`/gallery/${perYear.year}`}>
+              <Swiper
+                
+                effect={"cards"}
+                grabCursor={true}
+                modules={[EffectCards]}
+                className="mySwiper"
+              >
+                {data.map((image, imgIndex) => (
+                  <SwiperSlide key={imgIndex}>
+                    <img
+                      src={image.imgSrc}
+                      className="h-full w-full object-cover rounded-md"
+                      alt=""
+                    />
+                  </SwiperSlide>
+                ))}
+                <div className="absolute top-0 left-0 z-20 h-full w-full flex justify-center items-center bg-black/50 bg-blend-overlay rounded-2xl">
+                  <h1 className="text-2xl font-bold text-white tracking-widest">
+                    {perYear.year}
+                  </h1>
+                </div>
+              </Swiper>
+            </Link>
+          ))}
         </div>
-        <div className="gallery mb-10">
-          {data.map((item, index) => {
-            return (
-              <div className="pics" key={index} onClick={()=>handleImage(item.imgSrc)}>
-                <img src={item.imgSrc} alt="" style={{ width: "100%" }} />
-              </div>
-            );
-          })}
-        </div>
+        
       </div>
     </div>
   );

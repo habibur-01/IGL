@@ -5,6 +5,7 @@ import browser from "../../assets/images/browser.png";
 import "./ourservices.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
 
 AOS.init();
 
@@ -36,9 +37,9 @@ const OurServices = () => {
                   provide software and web services.
                 </p>
                 <div className="card-actions justify-start">
-                  <button className="text-[#ff4900] font-semibold">
+                  <Link to={"/iglweb"}><button className="text-[#ff4900] font-semibold hover:translate-y-1">
                     Read More
-                  </button>
+                  </button></Link>
                 </div>
               </div>
             </div>
@@ -53,7 +54,7 @@ const OurServices = () => {
                   provide software and web services.
                 </p>
                 <div className="card-actions justify-start">
-                  <button className="text-[#ff4900] font-semibold">
+                  <button className="text-[#ff4900] font-semibold hover:translate-y-1">
                     Read More
                   </button>
                 </div>
@@ -70,7 +71,7 @@ const OurServices = () => {
                   provide software and web services.
                 </p>
                 <div className="card-actions justify-start">
-                  <button className="text-[#ff4900] font-semibold">
+                  <button className="text-[#ff4900] font-semibold hover:translate-y-1">
                     Read More
                   </button>
                 </div>

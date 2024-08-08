@@ -1,0 +1,48 @@
+.menubar ul {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.menubar ul li {
+    list-style: none;
+    font-size: 16px;
+    
+    /* border-bottom: 2px solid #ff4900; */
+}
+
+/* .menubar ul li a:active .menubar ul li{
+    border-bottom: 1px solid #ff4900;
+    color: #ff4900;
+} */
+ .sidebar{
+    padding: 8px;
+    border-radius: 8px;
+ }
+.sidebar:hover {
+    border-bottom: 2px solid #ff4900;
+    color: #ff4900;
+}
+
+.sidebar-active {
+    color: #ff4900;
+    /* Change to your desired active color */
+    font-weight: bold;
+    border-bottom: 2px solid #ff4900;
+}
+
+.dropdown-bar:hover {
+    color: #ff4900;
+}
+
+.dropdown-bar:not(:last-child) {
+    padding-bottom: 8px ;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+
+.navbar-fixed{
+    position: fixed;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: 0.4s ease-in-out;
+}
