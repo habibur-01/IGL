@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "subCategory": "IGl Web",
+        "path": "iglweb"
+    },
+    {
+        "id": 2,
+        "subCategory": "IGl Host",
+        "path": "iglhost"
+    },
+    {
+        "id": 3,
+        "subCategory": "IGl Network",
+        "path": "iglnet"
+    }
+]

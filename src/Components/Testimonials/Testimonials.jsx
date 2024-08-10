@@ -4,9 +4,10 @@ import customer from "../../assets/images/member-3.jpg";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import "./style.css"
 
 // import required modules
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import {  Pagination, Navigation } from "swiper/modules";
 
 const Testimonials = () => {
   return (
@@ -25,7 +26,7 @@ const Testimonials = () => {
           </div>
         </div>
       </div>
-      <div className="my-10 z-0 w-[80%] mx-auto">
+      <div className="my-10 z-0 w-[100%] mx-auto">
         <Swiper
           slidesPerView={1}
           spaceBetween={30}
@@ -38,11 +39,12 @@ const Testimonials = () => {
             clickable: true,
           }}
           navigation={true}
-          modules={[Autoplay, Pagination, Navigation]}
-          className="mySwiper"
-        >
+          modules={[Pagination, Navigation]}
+          className="mySwiper testimonials"
+        >       
+         
           <SwiperSlide>
-            <div className=" w-[80%] mx-auto min-h-fit py-6 mb-10">
+            <div className=" w-[80%] mx-auto min-h-fit ">
               <div className="bg-[#f4f0e5] h-64 px-5 py-10 flex justify-between gap-6 rounded-lg">
                 <img
                   src={customer}
@@ -50,59 +52,20 @@ const Testimonials = () => {
                   alt=""
                 />
                 <div>
-                  <p className=" text-lg leading-8">
+                  <p className=" text-base leading-9 text-gray-500">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                     Aut facilis explicabo dolores vero praesentium! Ea
                     perferendis iure adipisci laborum velit! Lorem ipsum dolor
                     sit amet consectetur adipisicing elit. Ducimus, blanditiis!
                   </p>
-                  <h3 className="text-xl font-bold mt-8">Tom Hardy</h3>
-                  <h4 className="text-[#ff4900] mb-8">CEO</h4>
-                </div>
-              </div>
-            </div>
-            {/* <div className="flex w-[80%]  justify-center py-10 mx-auto shadow-xl relative">
-              <div className="">
-                <p className=" text-2xl  mx-auto leading-8">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut
-                  facilis explicabo dolores vero praesentium! Ea perferendis
-                  iure adipisci laborum velit!
-                </p>
-                <h3 className="text-xl font-bold mt-8">Tom Hardy</h3>
-                <h4 className="text-[#ff4900] mb-8">CEO</h4>
-              </div>
-              <div className="w-20 h-20 overflow-hidden rounded-full border-[1px] border-[#f0865d] ">
-                <img
-                  src={customer}
-                  alt=""
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div> */}
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className=" w-[80%] mx-auto min-h-fit py-6 mb-10">
-              <div className="bg-[#f4f0e5] h-64 px-5 py-10 flex justify-between gap-6 rounded-lg">
-                <img
-                  src={customer}
-                  className="border-2 rounded-full border-[#ffffff]"
-                  alt=""
-                />
-                <div>
-                  <p className=" text-lg leading-8">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Aut facilis explicabo dolores vero praesentium! Ea
-                    perferendis iure adipisci laborum velit! Lorem ipsum dolor
-                    sit amet consectetur adipisicing elit. Ducimus, blanditiis!
-                  </p>
-                  <h3 className="text-xl font-bold mt-8">Tom Hardy</h3>
-                  <h4 className="text-[#ff4900] mb-8">CEO</h4>
+                  <h3 className="text-xl font-bold mt-8 text-black">Tom Hardy</h3>
+                  <h4 className="text-[#ff4900] mb-8 text-lg ">CEO</h4>
                 </div>
               </div>
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className=" w-[80%] mx-auto min-h-fit py-6 mb-10">
+            <div className=" w-[80%] mx-auto min-h-fit ">
               <div className="bg-[#f4f0e5] h-64 px-5 py-10 flex justify-between gap-6 rounded-lg">
                 <img
                   src={customer}
@@ -110,14 +73,35 @@ const Testimonials = () => {
                   alt=""
                 />
                 <div>
-                  <p className=" text-lg leading-8">
+                  <p className=" text-base leading-9 text-gray-500">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                     Aut facilis explicabo dolores vero praesentium! Ea
                     perferendis iure adipisci laborum velit! Lorem ipsum dolor
                     sit amet consectetur adipisicing elit. Ducimus, blanditiis!
                   </p>
-                  <h3 className="text-xl font-bold mt-8">Tom Hardy</h3>
-                  <h4 className="text-[#ff4900] mb-8">CEO</h4>
+                  <h3 className="text-xl font-bold mt-8 text-black">Tom Hardy</h3>
+                  <h4 className="text-[#ff4900] mb-8 text-lg ">CEO</h4>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className=" w-[80%] mx-auto min-h-fit ">
+              <div className="bg-[#f4f0e5] h-64 px-5 py-10 flex justify-between gap-6 rounded-lg">
+                <img
+                  src={customer}
+                  className="border-2 rounded-full border-[#ffffff]"
+                  alt=""
+                />
+                <div>
+                  <p className=" text-base leading-9 text-gray-500">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Aut facilis explicabo dolores vero praesentium! Ea
+                    perferendis iure adipisci laborum velit! Lorem ipsum dolor
+                    sit amet consectetur adipisicing elit. Ducimus, blanditiis!
+                  </p>
+                  <h3 className="text-xl font-bold mt-8 text-black">Tom Hardy</h3>
+                  <h4 className="text-[#ff4900] mb-8 text-lg ">CEO</h4>
                 </div>
               </div>
             </div>

@@ -5,14 +5,18 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import "./style.css";
 import { useEffect, useRef, useState } from "react";
+import axios from "axios";
 
 const NavbarNew = () => {
   const [isMenuDown, setIsMenuDown] = useState(false);
   const [isDown, setIsDown] = useState(false);
+  const [aboutUsDown, setAboutUsDown] = useState(false);
   const [barActive, setBarActive] = useState(false);
   const menuRef = useRef(null);
   const dropdownRef = useRef(null);
+  const aboutUsRef = useRef(null);
   const location = useLocation();
+  const [subCategory, setSubCategory] = useState([]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,6 +41,9 @@ const NavbarNew = () => {
   const handleDropdownToggle = () => {
     setIsDown(!isDown);
   };
+  const handleAboutUsToggle = () => {
+    setAboutUsDown(!aboutUsDown);
+  };
 
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -44,6 +51,9 @@ const NavbarNew = () => {
     }
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setIsDown(false);
+    }
+    if (aboutUsRef.current && !aboutUsRef.current.contains(event.target)) {
+      setAboutUsDown(false);
     }
   };
 
@@ -58,10 +68,25 @@ const NavbarNew = () => {
     // Close dropdowns on route change
     setIsMenuDown(false);
     setIsDown(false);
+    setAboutUsDown(false);
   }, [location]);
+  useEffect(() => {
+    axios
+      .get("/subMenu.json")
+      .then((result) => {
+        setSubCategory(result.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [subCategory]);
 
   return (
-    <div className={`h-24 w-full z-50 bg-base-100 flex items-center ${barActive && "navbar-fixed"}`}>
+    <div
+      className={`h-24 w-full z-50 bg-base-100 flex items-center ${
+        barActive && "navbar-fixed"
+      }`}
+    >
       <Container>
         <div className="flex justify-between items-center">
           <div className="flex">
@@ -88,59 +113,107 @@ const NavbarNew = () => {
                   Home
                 </NavLink>
               </li>
-              <li>
-                <NavLink
-                  to={"/about"}
-                  className={({ isActive }) =>
-                    isActive ? "sidebar sidebar-active" : "sidebar"
-                  }
-                >
-                  About Us{" "}
-                </NavLink>
-              </li>
-              <li className="relative" ref={dropdownRef}>
-                <a className="sidebar" onClick={handleDropdownToggle}>
-                  Sister Concern
-                  <span className={`${isDown && "rotate-180"}`}>
-                    <MdKeyboardArrowDown size={18} className="inline-block"/>
-                  </span>
-                </a>
-                <div
-                  className={`absolute top-[100%] bg-base-200 w-56 space-y-4 z-10 p-4 shadow-md hover:bg-white ${
-                    isDown ? "block" : "hidden"
-                  }`}
-                >
-                  <div className="dropdown-bar">
-                    <Link to={"/iglweb"}>IGL Web</Link>
+              {subCategory.length > 0 ? (
+                <li className="relative" ref={aboutUsRef}>
+                  <a className="sidebar" onClick={handleAboutUsToggle}>
+                    About Us
+                    <span className={`${aboutUsDown && "rotate-180"}`}>
+                      <MdKeyboardArrowDown size={18} className="inline-block" />
+                    </span>
+                  </a>
+                  <div
+                    className={`absolute top-[100%] bg-base-200 w-56 space-y-4 z-10 p-4 shadow-md hover:bg-white ${
+                      aboutUsDown ? "block" : "hidden"
+                    }`}
+                  >
+                    {subCategory.map((subMenu) => (
+                      <div className="dropdown-bar" key={subMenu.id}>
+                        <Link to={`/${subMenu.path}`}>
+                          {subMenu.subCategory}
+                        </Link>
+                      </div>
+                    ))}
                   </div>
-                  <div className="dropdown-bar">
-                    <Link to={"/iglhost"}>IGL Host</Link>
+                </li>
+              ) : (
+                <li>
+                  <NavLink
+                    to={"/siterconcern"}
+                    className={({ isActive }) =>
+                      isActive ? "sidebar sidebar-active" : "sidebar"
+                    }
+                  >
+                    Sister Concern
+                  </NavLink>
+                </li>
+              )}
+              {subCategory.length > 0 ? (
+                <li className="relative" ref={dropdownRef}>
+                  <a className="sidebar" onClick={handleDropdownToggle}>
+                    Sister Concern
+                    <span className={`${isDown && "rotate-180"}`}>
+                      <MdKeyboardArrowDown size={18} className="inline-block" />
+                    </span>
+                  </a>
+                  <div
+                    className={`absolute top-[100%] bg-base-200 w-56 space-y-4 z-10 p-4 shadow-md hover:bg-white ${
+                      isDown ? "block" : "hidden"
+                    }`}
+                  >
+                    {subCategory.map((subMenu) => (
+                      <div className="dropdown-bar" key={subMenu.id}>
+                        <Link to={`/${subMenu.path}`}>IGL Web</Link>
+                      </div>
+                    ))}
                   </div>
-                  <div className="dropdown-bar">
-                    <Link to={"/iglnetwork"}>IGL Nework</Link>
+                </li>
+              ) : (
+                <li>
+                  <NavLink
+                    to={"/siterconcern"}
+                    className={({ isActive }) =>
+                      isActive ? "sidebar sidebar-active" : "sidebar"
+                    }
+                  >
+                    Sister Concern
+                  </NavLink>
+                </li>
+              )}
+              {subCategory.length > 0 ? (
+                <li className="relative" ref={menuRef}>
+                  <a className="sidebar" onClick={handleMenuToggle}>
+                    Our Team
+                    <span className={`${isMenuDown && "rotate-180"}`}>
+                      <MdKeyboardArrowDown size={18} className="inline-block" />
+                    </span>
+                  </a>
+                  <div
+                    className={`absolute top-[100%] bg-base-200 w-56 space-y-4 z-10 p-4 shadow-md hover:bg-white ${
+                      isMenuDown ? "block" : "hidden"
+                    }`}
+                  >
+                    {subCategory.map((subMenu) => (
+                      <div className="dropdown-bar" key={subMenu.id}>
+                        <Link to={`/${subMenu.path}`}>
+                          {subMenu.subCategory}
+                        </Link>
+                      </div>
+                    ))}
                   </div>
-                </div>
-              </li>
-              <li className="relative" ref={menuRef}>
-                <a className="sidebar" onClick={handleMenuToggle}>
-                  Our Team
-                  <span className={`${isMenuDown && "rotate-180"}`}>
-                    <MdKeyboardArrowDown size={18} className="inline-block" />
-                  </span>
-                </a>
-                <div
-                  className={`absolute top-[100%] bg-base-200 w-56 z-10 space-y-4 p-4 shadow-md ${
-                    isMenuDown ? "block" : "hidden"
-                  }`}
-                >
-                  <div className="dropdown-bar">
-                    <Link to={"/directors"}>Board of Director</Link>
-                  </div>
-                  <div className="dropdown-bar">
-                    <Link to={"/team"}>Board of Officer/Staff</Link>
-                  </div>
-                </div>
-              </li>
+                </li>
+              ) : (
+                <li>
+                  <NavLink
+                    to={"/siterconcern"}
+                    className={({ isActive }) =>
+                      isActive ? "sidebar sidebar-active" : "sidebar"
+                    }
+                  >
+                    Our Team
+                  </NavLink>
+                </li>
+              )}
+
               <li>
                 <NavLink
                   to={"/gallery"}
@@ -159,6 +232,16 @@ const NavbarNew = () => {
                   }
                 >
                   Contact Us
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to={"/admin"}
+                  className={({ isActive }) =>
+                    isActive ? "sidebar sidebar-active" : "sidebar"
+                  }
+                >
+                  Admin
                 </NavLink>
               </li>
             </ul>

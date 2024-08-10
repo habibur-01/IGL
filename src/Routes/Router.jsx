@@ -11,6 +11,12 @@ import WebPageDetails from "../Pages/WebPageDetails/WebPageDetails";
 import TeamMemberDetails from "../Pages/TeamMemberDetails/TeamMemberDetails";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 import GalleryDetails from "../Pages/Gallery/GalleryDetails";
+import Dashboard from "../Layout/Dashboard/Dashboard";
+import AddService from "../Pages/Dashboard/AddService";
+import AddSubMenu from "../Pages/Dashboard/AddSubMenu";
+import AddPhoto from "../Pages/Dashboard/AddPhoto";
+import AddAboutDetails from "../Pages/Dashboard/AddAboutDetails";
+import SubMenuContent from "../Pages/Dashboard/SubMenuContent";
 
 const router = createBrowserRouter([
   {
@@ -57,8 +63,35 @@ const router = createBrowserRouter([
       {
         path: "/gallery/:year",
         element: <GalleryDetails></GalleryDetails>
-      }
+      },
+      
     ],
   },
+  {
+    path: "/admin",
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: "/admin/addservice",
+        element: <AddService></AddService>
+      },
+      {
+        path:"/admin/addsubmenu",
+        element: <AddSubMenu></AddSubMenu>
+      },
+      {
+        path:"/admin/addphoto",
+        element: <AddPhoto></AddPhoto>
+      },
+      {
+        path: "/admin/addabout",
+        element: <AddAboutDetails></AddAboutDetails>
+      },
+      {
+        path: "/admin/addsubmenudata",
+        element: <SubMenuContent></SubMenuContent>
+      },
+    ]
+  }
 ]);
 export default router;

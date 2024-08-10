@@ -46,3 +46,7 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: 0.4s ease-in-out;
 }
+.sub-active a {
+    color: #f00; /* Example color */
+    font-weight: bold;
+  }
